@@ -1,0 +1,1 @@
+Calculadora feito com conhecimento inicial de POO, falta adicionar encapsulamento e resolver alguns bugs.
