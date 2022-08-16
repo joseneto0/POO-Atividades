@@ -26,8 +26,7 @@ class Calculadora:
     def registrador(self):
         return self.__valor
     
-    def novoNumero(self):
-        num = float(input('Digite o número para a realização da operação: '))
+    def novoNumero(self, num):
         self.__valorNovo = num
     
     def adicionar(self):

@@ -1,7 +1,5 @@
 from calculadora import Calculadora
-calc = 0
-valor = float(input('Digite o valor inicial: '))
-calc = Calculadora(valor)
+calc = Calculadora()
 while True:
     print('-' * 20)
     print('Calculadora do Zezin'.center(15))
@@ -20,19 +18,23 @@ while True:
     print('-' * 20)
     calc.getOperacao(operacao)
     if operacao == '+':
-        calc.novoNumero()
+        num = float(input('Digite o número para a realização da operação: '))
+        calc.novoNumero(num)
         o = calc.adicionar()
         valor = calc.numeroAtual(o)
     elif operacao == '-':
-        calc.novoNumero()
+        num = float(input('Digite o número para a realização da operação: '))
+        calc.novoNumero(num)
         o = calc.subtrair()
         valor = calc.numeroAtual(o)
     elif operacao == '/':
-        calc.novoNumero()
+        num = float(input('Digite o número para a realização da operação: '))
+        calc.novoNumero(num)
         o = calc.divisao()
         valor = calc.numeroAtual(o)
     elif operacao == '*':
-        calc.novoNumero()
+        num = float(input('Digite o número para a realização da operação: '))
+        calc.novoNumero(num)
         o = calc.multiplicacao()
         valor = calc.numeroAtual(o)
     elif operacao == 'r':
