@@ -14,7 +14,7 @@ while True:
     print('(*) multiplicar')
     print('(r) resetar')
     print('(d) desfazer')
-    print('(e) - sair')
+    print('(e) sair')
     print('-' * 20)
     operacao = input("Operação: ").lower()
     print('-' * 20)

@@ -16,7 +16,7 @@ class Calculadora:
             for i in range(3, 0, -1):
                 print(f'{i}', end=' ', flush=True)
                 sleep(1)
-            print()
+            print('FIM')
         
     def numeroAtual(self, numAtual):
         self.__numeroAntigo = self.__valor
