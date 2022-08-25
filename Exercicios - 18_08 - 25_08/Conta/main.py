@@ -7,7 +7,7 @@ if __name__ == "__main__":
     print("Vamos começar fazendo o cadastro de 10 pessoas :)")
     sleep(1)
     lista_contas = []
-    for i in range(2):
+    for i in range(10):
         numero = int(input(f'Digite o número da conta {i+1}: '))
         saldo = float(input(f'Digite o saldo da conta {i+1}: '))
         nome = input(f'Digite o nome da conta {i+1}: ')
