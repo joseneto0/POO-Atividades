@@ -1,0 +1,1 @@
+Programa que cadastra um aluno, ê suas notas e entra sua média.

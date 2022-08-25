@@ -1,0 +1,1 @@
+Exercícios feitos para treino de conceitos de POO em Python.
