@@ -35,19 +35,19 @@ class Aviao:
         return f'{100 - len(self.__cadeiras)} cadeiras disponíveis'
 
     def estaDisponivel(self, num_cadeira):
-        if num_cadeira not in self.__cadeiras:
-            return f'Cadeira {num_cadeira} está disponível'
-        return f'Cadeira {num_cadeira} indisponível'
+        assert num_cadeira not in self.__cadeiras, f"Cadeira {num_cadeira} indisponível"
+        return f'Cadeira {num_cadeira} está disponível'
 
     def ocupar(self, num_cadeira):
         assert num_cadeira not in self.__cadeiras and len(self.__cadeiras) < 100, f"Cadeira {num_cadeira} indisponível"
+        assert num_cadeira > 0 and num_cadeira < 101, f"Assento {num_cadeira} não existente"
         self.__cadeiras.append(num_cadeira)
         return f'Cadeira {num_cadeira} alocada com sucesso'
 
     @property
     def getAssento(self):
-        assert len(self.__cadeiras) < 100 and len(self.__cadeiras) > 0, "Avião Cheio"
-        assentos_disponiveis = [x for x in range(1, 100) if x not in self.__cadeiras]
+        assert len(self.__cadeiras) < 100, "Avião Cheio"
+        assentos_disponiveis = [x for x in range(1, 101) if x not in self.__cadeiras]
         return f"Assentos Disponíveis: {assentos_disponiveis}"
 
     def __str__(self):
