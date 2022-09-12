@@ -19,7 +19,7 @@ class Funcionario(ABC):
 
     @nome.setter
     def nome(self, nome):
-        assert type(nome) == str
+        assert type(nome) == str and nome.isalpha(), f"Erro na digitação no nome: {nome}"
         self.__nome = nome
 
     @property
