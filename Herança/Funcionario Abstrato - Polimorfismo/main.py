@@ -14,10 +14,12 @@ try:
     lista.append(gerente)
     lista.append(diretor)
     print(f'''
-Objeto         Funcionário        Grau de Instrução       Salário Base
+Objeto         Funcionário        Grau de Instrução       Salário
 ============   ================   =====================   ================''')
     for i in range(len(lista)):
-        print(f'{type(lista[i]).__name__:10}     {lista[i].nome:15}    {lista[i].grau:19}     R${lista[i].salario:.2f}')
+        print(f'{type(lista[i]).__name__:10}     {lista[i].nome:15}    {lista[i].grau:19}     {lista[i].contraCheque()}')
     print('='*74)
 except AssertionError as a:
     print(a)
+except Exception as e:
+    print(f'Erro: {e} :c')

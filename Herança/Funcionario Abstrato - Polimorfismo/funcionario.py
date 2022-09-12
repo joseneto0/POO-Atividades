@@ -8,10 +8,10 @@ class GrauDeFormacao(Enum):
     DOUTOR = 'Doutor'
 
 class Funcionario(ABC):
-    def __init__(self, nome, salario, grau):
+    def __init__(self, nome, salario, grau=None):
         self.nome = nome
         self.salario = salario
-        self.grau = grau.value
+        self.grau = grau
 
     @property
     def nome(self):
@@ -29,7 +29,17 @@ class Funcionario(ABC):
     @salario.setter
     def salario(self, salario):
         assert type(salario) == float, f'Salário de {self.nome} fora do padrão Float (Tipo atual : {type(salario)})'
+        assert salario > 0, "Salário deve ser maior que 0"
         self.__salario = salario
+
+    @property
+    def grau(self):
+        return self.__grau
+
+    @grau.setter
+    def grau(self, grau):
+        assert type(grau) == GrauDeFormacao, "Utilize o enum GrauDeFormacao para atribuição do grau"
+        self.__grau = grau.value
 
     @abstractmethod
     def contraCheque(self):
@@ -40,7 +50,7 @@ class Funcionario(ABC):
         pass
     
     def __str__(self):
-        return f"Objeto do tipo {type(self).__name__}: {self.nome}, Salário: R$ {self.salario:.2f}"
+        return f"Objeto do tipo {type(self).__name__}: {self.nome}, Salário Base: R$ {self.salario:.2f}"
 
 class Presidente(Funcionario):
     def __init__(self, nome, salario, grau):
@@ -52,7 +62,7 @@ class Presidente(Funcionario):
         return 3
 
     def contraCheque(self):
-        return f'R$ {self.salario * self.addBonificação():.2f}'
+        return f'R$ {super().contraCheque() * self.addBonificação():.2f}'
 
 class Gerente(Funcionario):
     def __init__(self, nome, salario, grau):
